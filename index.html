@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Melissa — Web3 KOL & Growth Strategist. Scaling communities, markets, and impact across the decentralized space.">
+    <title>Melissa — Web3 KOL & Growth Strategist</title>
+
+    <!-- =============================================
+         FONTS — Syne (headings) + Outfit (body)
+         Both loaded from Google Fonts
+    ============================================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- =============================================
+         STYLESHEET
+    ============================================= -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+</head>
+<body>
+
+
+    <!-- =============================================
+         MOBILE NAV OVERLAY
+         Hidden by default. Opens when burger is clicked.
+         Controlled by JS — adds class "open" to show it.
+    ============================================= -->
+    <div class="nav__overlay" id="mobileNav">
+        <button class="nav__overlay-close" id="navClose">✕</button>
+        <a href="#about"    class="nav__overlay-link">About</a>
+        <a href="#work"     class="nav__overlay-link">Work</a>
+        <a href="#services" class="nav__overlay-link">Services</a>
+        <a href="#testimonials" class="nav__overlay-link">Testimonials</a>
+        <a href="#contact"  class="nav__overlay-link">Contact</a>
+    </div>
+
+
+    <!-- =============================================
+         NAVIGATION
+         Fixed at top. Gets "scrolled" class via JS
+         when user scrolls past 40px — triggers
+         frosted glass background effect.
+    ============================================= -->
+    <nav class="nav" id="nav">
+
+        <!-- Logo / Name -->
+        <div class="nav__logo">Melissa</div>
+
+        <!-- Desktop Links -->
+        <ul class="nav__links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Desktop CTA Button -->
+        <a href="#contact" class="nav__cta">Hire Me</a>
+
+        <!-- Mobile Burger Button (hidden on desktop) -->
+        <button class="nav__burger" id="burger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </nav>
+
+
+    <!-- =============================================
+         HERO SECTION
+         Full viewport height. Contains:
+         - Background dot grid (CSS ::before)
+         - Floating ambient orbs (decorative divs)
+         - Main hero content (eyebrow, name, roles, tagline, CTAs)
+         - Scroll indicator at bottom
+    ============================================= -->
+    <section class="hero" id="home">
+
+    <!-- Ambient Glow Orbs — pure decoration, CSS animates them -->
+         <!--
+        <div class="hero__orb hero__orb--a"></div>
+        <div class="hero__orb hero__orb--b"></div>
+        <div class="hero__orb hero__orb--c"></div>
+    -->
+
+        <!-- All visible hero content sits inside here -->
+        <div class="hero__inner">
+
+            <!-- Small pill label above the name -->
+           <!----> <div class="hero__eyebrow">Web3 KOL &amp; Growth Strategist</div>
+
+            <!-- Big name -->
+            <h1 class="hero__name">MELISSA</h1>
+
+            <!-- Cycling animated job titles -->
+            <!-- Each .hero__role cycles in and out via CSS keyframes -->
+            <div class="hero__roles" aria-label="KOL, Web3 Marketer, Space Host, Growth Strategist, Macro Ambassador">
+                <span class="hero__role">KOL</span>
+                <span class="hero__role">Web3 Marketer</span>
+                <span class="hero__role">Space Host</span>
+                <span class="hero__role">Growth Strategist</span>
+                <span class="hero__role">Macro Ambassador</span>
+            </div>
+
+            <!-- Short tagline under roles -->
+            <p class="hero__tagline">
+                Turning attention into action. Community into capital.
+                Three years in the trenches of Web3 — and the results speak louder than the hype.
+            </p>
+
+            <!-- Two CTA buttons -->
+            <div class="hero__ctas">
+                <a href="#contact" class="btn btn--fill">Work With Me</a>
+                <a href="#work"    class="btn btn--ghost">View Proof of Work</a>
+            </div>
+
+        </div>
+
+        <!-- Scroll down indicator at the very bottom -->
+        <div class="hero__scroll" aria-hidden="true">Scroll</div>
+
+    </section>
+
+
+    <!-- =============================================
+         STATS BAR
+         Four big numbers in a full-width grid.
+         Numbers count up via JS IntersectionObserver.
+         data-target = the final number to count to
+         data-suffix = text that appears after the number
+    ============================================= -->
+    <div class="stats-wrap">
+        <div class="stats-grid">
+
+            <div class="stat reveal">
+                <div class="stat__num" data-target="3" data-suffix="+ Yrs">0</div>
+                <div class="stat__label">In Web3</div>
+            </div>
+
+            <div class="stat fifty reveal d1">
+                <div class="stat__num" data-target="50" data-suffix="+">0</div>
+                <div class="stat__label">Projects Supported</div>
+            </div>
+
+            <div class="stat hundred-plus reveal d2">
+                <div class="stat__num" data-target="100" data-suffix="+">0</div>
+                <div class="stat__label">X Spaces Hosted</div>
+            </div>
+
+            <div class="stat reveal d3">
+                <div class="stat__num" data-target="100" data-suffix="+">0</div>
+                <div class="stat__label">Community Campaigns</div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =============================================
+         ABOUT SECTION
+         Two column layout — photo left, text right.
+         On mobile collapses to single column.
+         Photo has a gradient glow border behind it.
+         Badges sit over the bottom of the photo.
+    ============================================= -->
+    <section class="about section section--alt" id="about">
+        <div class="about__grid container">
+
+            <!-- LEFT — Photo Column -->
+            <div class="about__photo-outer reveal">
+
+                <!-- Glow gradient behind the photo card -->
+                <div class="about__photo-glow"></div>
+
+                <!-- Photo card -->
+                <div class="about__photo">
+
+                    <!-- Melissa's photo. src points to assets folder -->
+                    <!-- If image fails to load, JS hides it and shows placeholder -->
+                    <img
+                        src="assets/melissa.jpg"
+                        alt="Melissa — Web3 KOL"
+                        class="about__photo-img"
+                        id="melissaPhoto"
+                    >
+
+                    <!-- Placeholder shown if photo fails to load -->
+                    <!--<div class="about__photo-placeholder" id="photoPlaceholder">
+                        <span class="about__photo-placeholder-icon">📸</span>
+                        <p>Photo coming soon</p>
+                    </div>-->
+
+                    <!-- Dark overlay at bottom of photo so badges are readable -->
+                    <div class="about__photo-overlay"></div>
+
+                    <!-- Achievement badges over photo -->
+                    <div class="about__badge-strip">
+                        <span class="badge badge--purple">🏆 Best Female Space Host</span>
+                        <span class="badge badge--cyan">🇳🇬 First Nigerian — Longest X Space on CTNG</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT — Text Column -->
+            <div class="about__text">
+
+                <!-- Section label -->
+                <div class="tag">About Me</div>
+
+                <!-- Section heading -->
+                <h2 class="about__heading heading reveal">
+                    Fully In<br>Web3.
+                </h2>
+
+                <!-- Bio paragraphs -->
+                <p class="about__bio reveal d1">
+                    I don't just market Web3 projects — I build the bridges between them and
+                    the people who matter most. With 3+ years navigating the space from the
+                    ground up, I've helped teams go from quiet to unstoppable.
+                </p>
+
+                <p class="about__bio reveal d2">
+                    Scaling market caps, selling out NFT collections, breaking X Space records —
+                    I've done it across Memecoins, DeFi, NFTs, Gaming, and Web3 Infrastructure.
+                    I show up, and I deliver.
+                </p>
+
+                <!-- Niche tags -->
+                <div class="about__tags reveal d3">
+                    <span class="tag-pill">Memecoins</span>
+                    <span class="tag-pill">DeFi / Utility</span>
+                    <span class="tag-pill">NFTs</span>
+                    <span class="tag-pill">Gaming</span>
+                    <span class="tag-pill">Web3 Infrastructure</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         PROOF OF WORK SECTION
+         Grid of project cards. Each card shows:
+         - Category tag (colored by type)
+         - Status badge (Completed / Ongoing)
+         - Big result number
+         - Project logo (where applicable)
+         - Project name
+         - Short description
+
+         Cards alternate purple/cyan color theme
+         using pow__card--p and pow__card--c classes.
+
+         Last card spans full width — groups 5 ecosystem
+         projects with their logos in a row.
+    ============================================= -->
+    <section class="pow section" id="work">
+        <div class="container">
+
+            <!-- Section header -->
+            <div class="pow__head">
+                <div>
+                    <div class="tag">Proof of Work</div>
+                    <h2 class="heading reveal">Results That<br>Move Markets.</h2>
+                </div>
+                <p class="subtext reveal d2">
+                    Real campaigns. Real numbers. Every project below represents a team
+                    that trusted the process — and got measurable results.
+                </p>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="pow__grid">
+
+
+                <!-- ── CARD 1: Bonga Meme (no logo — memecoin) ── -->
+                <a href="https://x.com/bongasolana" target="_blank" rel="noopener noreferrer" class="pow__card pow__card--p reveal">
+                    <div class="pow__card-top">
+                        <span class="cat cat--meme">Memecoin</span>
+                        <span class="status status--done">Completed</span>
+                    </div>
+                    <div class="pow__result">$5M+</div>
+                    <!-- Logo + Name row -->
+                    <div class="pow__identity">
+                        <img src="assets/logos/bonga.jpg" alt="VDEX logo" class="pow__logo">
+                        <div class="pow__name">Bonga Meme</div>
+                    </div>
+                    <p class="pow__desc">
+                        Scaled market cap from $100K to over $5M through targeted
+                        community engagement and strategic growth campaigns.
+                    </p>
+                </a>
+
+
+                <!-- ── CARD 2: VDEX (has logo) ── -->
+                <a href="https://x.com/0xVDEX" target="_blank" rel="noopener noreferrer" class="pow__card pow__card--c reveal">
+                    <div class="pow__card-top">
+                        <span class="cat cat--defi">DeFi</span>
+                        <span class="status status--done">Completed</span>
+                    </div>
+                    <div class="pow__result">$10M</div>
+                    <!-- Logo + Name row -->
+                    <div class="pow__identity">
+                        <img src="assets/logos/vdex.jpg" alt="VDEX logo" class="pow__logo">
+                        <div class="pow__name">VDEX</div>
+                    </div>
+                    <p class="pow__desc">
+                        Generated nearly $10M in trading volume and 1,000+ verified
+                        referrals through high-impact KOL strategy.
+                    </p>
+                </a>
+
+
+                <!-- ── CARD 3: Backpack Exchange (has logo) ── -->
+                <a href="https://x.com/backpack" target="_blank" rel="noopener noreferrer" class="pow__card pow__card--p reveal">
+                    <div class="pow__card-top">
+                        <span class="cat cat--xch">Exchange</span>
+                        <span class="status status--done">Completed</span>
+                    </div>
+                    <div class="pow__result">$500K</div>
+                    <div class="pow__identity">
+                        <img src="assets/logos/backpack.jpg" alt="Backpack Exchange logo" class="pow__logo">
+                        <div class="pow__name">Backpack Exchange</div>
+                    </div>
+                    <p class="pow__desc">
+                        Generated $500K in trading volume and 500+ direct referrals
+                        within a single month of active promotion.
+                    </p>
+                </a>
+
+
+                <!-- ── CARD 4: Golden Donkey (no logo — memecoin) ── -->
+                <a href="https://x.com/goldendonkeygdk" target="_blank" rel="noopener noreferrer" class="pow__card pow__card--c reveal">
+                    <div class="pow__card-top">
+                        <span class="cat cat--nft">NFTs</span>
+                        <span class="status status--done">Completed</span>
+                    </div>
+                    <div class="pow__result">1K Sold</div>
+                    <!-- Logo + Name row -->
+                    <div class="pow__identity">
+                        <img src="assets/logos/golden-donkey.jpg" alt="VDEX logo" class="pow__logo">
+                        <div class="pow__name">Golden Donkey ($GDK)</div>
+                    </div>
+                
+                    <p class="pow__desc">
+                        Orchestrated a complete 1,000 NFT collection sellout through
+                        strategic community activation and targeted outreach.
+                    </p>
+                </a>
+
+
+                <!-- ── CARD 5: Onlyplay Club (has logo) ── -->
+                <a href="https://x.com/onlyplayclub" target="_blank" rel="noopener noreferrer" class="pow__card pow__card--p reveal d1">
+                    <div class="pow__card-top">
+                        <span class="cat cat--game">Gaming</span>
+                        <span class="status status--done">Completed</span>
+                    </div>
+                    <div class="pow__result">8K→15K</div>
+                    <div class="pow__identity">
+                        <img src="assets/logos/onlyplayclub.jpg" alt="Onlyplay Club logo" class="pow__logo">
+                        <div class="pow__name">Onlyplay Club</div>
+                    </div>
+                    <p class="pow__desc">
+                        Doubled their audience from 8K to 15K in a single week through
+                        high-velocity visibility campaigns.
+                    </p>
+                </a>
+
+
+                <!-- ── CARD 6: Toilet Paper HQ (no logo — memecoin) ── -->
+                <div class="pow__card pow__card--c reveal">
+                    <div class="pow__card-top">
+                        <span class="cat cat--meme">Memecoin</span>
+                        <span class="status status--done">Completed</span>
+                    </div>
+                    <div class="pow__result">15x+</div>
+                    <div class="pow__name">Toilet Paper HQ ($WIPE)</div>
+                    <p class="pow__desc">
+                        Early entry at sub-$50K MC. Strategic visibility push drove
+                        a 15x+ growth trajectory from ground zero.
+                    </p>
+                </div>
+
+
+                <!-- ── CARD 7: Ulalo (has logo) ── -->
+                <a href="https://x.com/ulalo_io" target="_blank" rel="noopener noreferrer" class="pow__card pow__card--p reveal">
+                    <div class="pow__card-top">
+                        <span class="cat cat--infra">Infrastructure</span>
+                        <span class="status status--done">Completed</span>
+                    </div>
+                    <div class="pow__result">Visibility</div>
+                    <div class="pow__identity">
+                        <img src="assets/logos/ulalo.jpg" alt="Ulalo logo" class="pow__logo">
+                        <div class="pow__name">Ulalo</div>
+                    </div>
+                    <p class="pow__desc">
+                        Boosted project visibility and brand awareness significantly
+                        within the Web3 community through sustained engagement.
+                    </p>
+                </a>
+
+
+                <!-- ── CARD 8: OTI (has logo) ── -->
+                <a href="https://x.com/owntheinfluence" target="_blank" rel="noopener noreferrer" class="pow__card pow__card--c reveal d1">
+                    <div class="pow__card-top">
+                        <span class="cat cat--infra">Influence</span>
+                        <span class="status status--live">Ongoing</span>
+                    </div>
+                    <div class="pow__result">Active</div>
+                    <div class="pow__identity">
+                        <img src="assets/logos/oti.jpg" alt="Own The Influence logo" class="pow__logo">
+                        <div class="pow__name">Own The Influence (OTI)</div>
+                    </div>
+                    <p class="pow__desc">
+                        Driving VIP badge sales and strengthening community engagement
+                        through active KOL representation.
+                    </p>
+                </a>
+
+
+                <!-- ── CARD 9: Switchive (has logo) ── -->
+                <a href="https://x.com/switchive" target="_blank" rel="noopener noreferrer" class="pow__card pow__card--p reveal d2">
+                    <div class="pow__card-top">
+                        <span class="cat cat--infra">Infrastructure</span>
+                        <span class="status status--done">Completed</span>
+                    </div>
+                    <div class="pow__result">Visibility</div>
+                    <div class="pow__identity">
+                        <img src="assets/logos/switchive.jpg" alt="Switchive logo" class="pow__logo">
+                        <div class="pow__name">Switchive</div>
+                    </div>
+                    <p class="pow__desc">
+                        Driving brand visibility and onboarding new users through
+                        active referrals and strategic promotions.
+                    </p>
+                </a>
+
+
+                <!-- ── CARD 10: QwertiAI (has logo) ── -->
+                <a href="https://x.com/QwertiAI" target="_blank" rel="noopener noreferrer" class="pow__card pow__card--c reveal d3">
+                    <div class="pow__card-top">
+                        <span class="cat cat--infra">AI / DeFi</span>
+                        <span class="status status--live">Ongoing</span>
+                    </div>
+                    <div class="pow__result">Active</div>
+                    <div class="pow__identity">
+                        <img src="assets/logos/qwertiai.jpg" alt="QwertiAI logo" class="pow__logo">
+                        <div class="pow__name">QwertiAI</div>
+                    </div>
+                    <p class="pow__desc">
+                        Ambassador & Growth Strategist — leading user onboarding
+                        and DeFi education for the platform.
+                    </p>
+                </a>
+
+
+                <!-- ── CARD 11: Ecosystem Group Card (spans full width) ── -->
+                <!-- No individual logos — these are memecoins/small projects -->
+                <div class="pow__card pow__card--eco ecosystem-card reveal">
+                    <div class="pow__card-top">
+                        <span class="cat cat--defi">Multi-Project</span>
+                        <span class="status status--done">Completed</span>
+                    </div>
+                    <div class="pow__result ecosystem-impact">Ecosystem Impact</div>
+                    <!-- Five project names listed -->
+                    <div class="pow__eco-names">
+                        <span class="pow__eco-name">Chicago $CLT</span>
+                        <span class="pow__eco-divider">·</span>
+                        <span class="pow__eco-name">RateXAI</span>
+                        <span class="pow__eco-divider">·</span>
+                        <span class="pow__eco-name">Dehta</span>
+                        <span class="pow__eco-divider">·</span>
+                        <span class="pow__eco-name">$RIO</span>
+                        <span class="pow__eco-divider">·</span>
+                        <span class="pow__eco-name">AlignerZ</span>
+                    </div>
+                    <p class="pow__desc">
+                        High-impact promotional campaigns across 5 ecosystem projects —
+                        including AlignerZ which reached Top 10 on Base chain. Each one
+                        driven by the same formula: authentic community, targeted outreach,
+                        measurable growth.
+                    </p>
+                </div>
+
+
+            </div>
+            <!-- end .pow__grid -->
+
+        </div>
+    </section>
+
+
+
+    <!-- =============================================
+         SERVICES SECTION
+         Six service cards in a 3-column grid.
+         Each has an icon, title, and description.
+         Icon divs alternate purple/cyan backgrounds.
+    ============================================= -->
+    <section class="services section section--alt" id="services">
+        <div class="container">
+
+            <!-- Section header -->
+            <div class="tag">What I Do</div>
+            <h2 class="heading reveal">Built to Grow<br>Your Project.</h2>
+
+            <!-- Services Grid -->
+            <div class="srv__grid">
+
+                <div class="srv__card reveal">
+                    <div class="srv__icon srv__icon--p">📣</div>
+                    <h3 class="srv__title">KOL Marketing</h3>
+                    <p class="srv__desc">
+                        Strategic key opinion leader campaigns that drive real attention
+                        and measurable results for your project.
+                    </p>
+                </div>
+
+                <div class="srv__card reveal d1">
+                    <div class="srv__icon srv__icon--c">🌐</div>
+                    <h3 class="srv__title">Community Growth</h3>
+                    <p class="srv__desc">
+                        Building and activating communities that convert — from 0 to
+                        engaged and loyal, at scale.
+                    </p>
+                </div>
+
+                <div class="srv__card reveal d2">
+                    <div class="srv__icon srv__icon--p">🎙️</div>
+                    <h3 class="srv__title">X Spaces Hosting</h3>
+                    <p class="srv__desc">
+                        Record-breaking spaces that build credibility, draw audiences,
+                        and spark real conversations.
+                    </p>
+                </div>
+
+                <div class="srv__card reveal d3">
+                    <div class="srv__icon srv__icon--c">📈</div>
+                    <h3 class="srv__title">Growth Strategy</h3>
+                    <p class="srv__desc">
+                        End-to-end growth frameworks tailored to your project's stage,
+                        goals, and community dynamics.
+                    </p>
+                </div>
+
+                <div class="srv__card reveal d4">
+                    <div class="srv__icon srv__icon--p">🤝</div>
+                    <h3 class="srv__title">Brand Ambassador</h3>
+                    <p class="srv__desc">
+                        Long-form partnership and representation, integrating your brand
+                        into my audience authentically.
+                    </p>
+                </div>
+
+                <div class="srv__card reveal d5">
+                    <div class="srv__icon srv__icon--c">✍️</div>
+                    <h3 class="srv__title">Content & Narrative</h3>
+                    <p class="srv__desc">
+                        Crafting the stories that make Web3 projects feel human,
+                        clear, and genuinely compelling.
+                    </p>
+                </div>
+
+            </div>
+            <!-- end .srv__grid -->
+
+        </div>
+    </section>
+
+    <!-- =============================================
+     TESTIMONIALS SECTION
+     Client feedback and social proof.
+    ============================================= -->
+    <section class="testimonials section " id="testimonials">
+        <div class="container">
+
+            <div class="tag">Client Love</div>
+            <h2 class="heading reveal">What Clients<br>Actually Say.</h2>
+
+            <div class="testi__grid">
+
+                <div class="testi__card reveal d1">
+                    <div class="testi__quote">❝</div>
+                    <p class="testi__text">
+                        Working with her was smooth and genuinely impactful. She brought real 
+                        visibility to my page, and I saw solid growth in both followers and 
+                        engagement. It was effective and definitely worth it.
+                    </p>
+                    <div class="testi__footer">
+                        <div class="testi__info">
+                            <div class="testi__name">Kelvin Charles</div>
+                            <div class="testi__result">Follower Growth · Engagement</div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://x.com/i/status/2039072466765496795" target="_blank" rel="noopener noreferrer" class="testi__card reveal d2">
+                <div class="pow__card-link-icon">↗</div>
+                    <div class="testi__quote">❝</div>
+                    <p class="testi__text">
+                            Melissa was a cornerstone of LOFTE-3. Whether on a physical stage or a virtual 
+                            Web3 Space, her natural flow, timing, and infectious energy transformed the event. 
+                            She doesn't just host; she creates moments that keep an audience connected. If you 
+                            need a voice that drives engagement, Melissa is the top choice.
+                    </p>
+                    <div class="testi__footer">
+                        <div class="testi__info">
+                            <div class="testi__name">LOFTE-3</div>
+                            <div class="testi__result">Event Hosting · Web3 Space</div>
+                        </div>
+                </div>
+</a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         CONTACT SECTION
+         Centered layout. Heading, subtext, then
+         four social buttons in a row.
+         Each button links to her real social profile.
+         SVG icons are inline so no external dependency.
+    ============================================= -->
+    <section class="contact section section--alt" id="contact">
+        <div class="contact__inner container">
+
+            <div class="contact__inner-one">
+
+                <!-- Section label -->
+                <div class="tag">Get In Touch</div>
+
+                <!-- Heading -->
+                <h2 class="heading reveal">Let's Build<br>Something Real.</h2>
+
+                <!-- Subtext -->
+                <p class="subtext reveal d1">
+                    Ready to take your project from quiet to unstoppable?
+                    Reach out on any platform — I respond fast.
+                </p>
+
+            </div>
+
+            
+
+            <!-- Social Buttons -->
+            <div class="contact__socials reveal d2">
+
+                <!-- Twitter / X -->
+                <a href="https://x.com/0xmelissa19" target="_blank" rel="noopener noreferrer" class="soc soc--x">
+                    <!-- X (Twitter) SVG icon -->
+                    <svg class="soc__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    Twitter / X
+                </a>
+
+                <!-- Telegram -->
+                <a href="https://t.me/vera1294" target="_blank" rel="noopener noreferrer" class="soc soc--tg">
+                    <!-- Telegram SVG icon -->
+                    <svg class="soc__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/>
+                    </svg>
+                    Telegram
+                </a>
+
+                <!-- Discord -->
+                <a href="https://discord.com/users/melissa" target="_blank" rel="noopener noreferrer" class="soc soc--dc">
+                    <!-- Discord SVG icon -->
+                    <svg class="soc__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.032.054a19.9 19.9 0 0 0 5.993 3.03.08.08 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                    Discord
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/2348087141011" target="_blank" rel="noopener noreferrer" class="soc soc--wa">
+                    <!-- WhatsApp SVG icon -->
+                    <svg class="soc__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+
+            </div>
+            <!-- end .contact__socials -->
+
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         FOOTER
+         Two wallet address cards (click to copy).
+         Bottom row: closing quote + copyright.
+         Copy functionality handled in script.js.
+    ============================================= -->
+    <footer class="footer">
+
+        <!-- Wallet Cards -->
+        <div class="footer__wallets">
+
+            <!-- Solana Wallet -->
+            <div class="wallet" onclick="copyWallet('7165rzMTpR1ruu185nHnBfetQ4b1aeGSRpn29sA5U7FX', this)" role="button" tabindex="0" aria-label="Copy Solana wallet address">
+                <div class="wallet__chain">Solana</div>
+                <div class="wallet__addr">7165rzMTpR1ruu185nHnBfetQ4b1aeGSRpn29sA5U7FX</div>
+                <div class="wallet__hint">Click to copy</div>
+            </div>
+
+            <!-- EVM Wallet -->
+            <div class="wallet" onclick="copyWallet('0x2f80d74b39bb18d29202f36bbdbff494f4787e65', this)" role="button" tabindex="0" aria-label="Copy EVM wallet address">
+                <div class="wallet__chain">EVM</div>
+                <div class="wallet__addr">0x2f80d74b39bb18d29202f36bbdbff494f4787e65</div>
+                <div class="wallet__hint">Click to copy</div>
+            </div>
+
+        </div>
+
+        <!-- Bottom row -->
+        <div class="footer__bottom">
+            <p class="footer__quote">"Building the decentralized future, one block at a time."</p>
+            <p class="footer__copy">© <span id="year">2026</span> Melissa</p>
+        </div>
+
+        <script>
+            year.textContent = new Date().getFullYear();
+        </script>
+
+    </footer>
+
+
+    <!-- =============================================
+         JAVASCRIPT
+         Linked at the bottom so HTML loads first
+         before JS tries to grab elements.
+    ============================================= -->
+    <script src="js/nav.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/stars.js"></script>
+
+
+</body>
+</html>

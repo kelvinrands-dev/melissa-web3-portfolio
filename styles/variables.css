@@ -1,0 +1,68 @@
+/* =============================================
+   VARIABLES.CSS
+   Single source of truth for the entire site.
+   Every color, font, spacing value lives here.
+   Use var(--name) anywhere in your other files.
+============================================= */
+
+:root {
+
+    /* ── BACKGROUNDS ── */
+    --bg:    #0a0a0f;  /* main page background */
+    --bg-1:  #0e0e18;  /* alternate sections */
+    --bg-2:  #13131f;  /* cards, photo bg */
+
+    /* ── PURPLE (primary accent) ── */
+    --purple:       #7c3aed;
+    --purple-light: #9d5ff5;
+    --purple-dim:   rgba(124, 58, 237, 0.18);
+    --purple-glow:  rgba(124, 58, 237, 0.35);
+
+    /* ── CYAN (secondary accent) ── */
+    --cyan:       #06b6d4;
+    --cyan-light: #22d3ee;
+    --cyan-dim:   rgba(6, 182, 212, 0.14);
+    --cyan-glow:  rgba(6, 182, 212, 0.30);
+
+    /* ── STATUS COLORS ── */
+    --green: #34d399;  /* completed */
+    --amber: #fbbf24;  /* memecoin tag */
+
+    /* ── WHITE OPACITIES ── */
+    --w:    #ffffff;
+    --w80:  rgba(255, 255, 255, 0.80);
+    --w50:  rgba(255, 255, 255, 0.50);
+    --w20:  rgba(255, 255, 255, 0.20);
+    --w10:  rgba(255, 255, 255, 0.10);
+    --w06:  rgba(255, 255, 255, 0.06);
+    --w03:  rgba(255, 255, 255, 0.03);
+
+    /* ── BORDER ── */
+    --border: rgba(255, 255, 255, 0.08);
+
+    /* ── FONTS ── */
+    --display: 'Syne', sans-serif;    /* headings */
+    --body:    'Outfit', sans-serif;  /* body text */
+
+    /* ── BORDER RADIUS ── */
+    --radius-sm:   14px;   /* icon boxes */
+    --radius-md:   22px;   /* cards */
+    --radius-lg:   24px;   /* photo, stats grid */
+    --radius-full: 100px;  /* pills, buttons, badges */
+
+    /* ── TRANSITIONS ── */
+    --transition:         all 0.3s ease;
+    --transition-elastic: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-reveal:  0.9s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* ── SPACING ── */
+    --gap-cards:    18px;   /* gap between grid cards */
+    --pad-card:     32px;   /* padding inside cards */
+    --pad-section:  58px;   /* desktop side padding */
+    --pad-tablet:   30px;   /* tablet side padding */
+    --pad-mobile:   24px;   /* mobile side padding */
+
+    /*MY OWN PADDING USEED*/
+    --padding-top: 96px; /*FOR MOBILE TOP PADDING*/
+
+}
